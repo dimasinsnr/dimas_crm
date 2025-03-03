@@ -22,9 +22,10 @@ Aplikasi Customer Relationship Management (CRM) ini dikembangkan menggunakan **P
 - **Interaksi Berbasis AJAX** menggunakan **jQuery** untuk pengalaman pengguna yang lebih responsif.
 - **Yajra DataTables** dengan **Server-side Processing** untuk pengelolaan data yang lebih efisien.
 - **Service Layer** untuk memisahkan logika bisnis agar controller tetap ringan.
+- **Tampilan berbasis Template Admin Free dari SoftUI** untuk antarmuka yang lebih modern dan responsif.
 
 ## Penjelasan Teknis
-Pada Aplikasi ini saya menggunakan pendekatan **modular (HMVC)**, di mana setiap fitur dikelompokkan dalam satu modul yang terdiri dari **Model, View, Controller, Route, dan Service**. 
+Aplikasi ini menggunakan pendekatan **modular (HMVC)**, di mana setiap fitur dikelompokkan dalam satu modul yang terdiri dari **Model, View, Controller, Route, dan Service**. 
 
 - **Role dan Permission**
   - Sistem hak akses dirancang sendiri tanpa menggunakan package pihak ketiga.
@@ -35,6 +36,9 @@ Pada Aplikasi ini saya menggunakan pendekatan **modular (HMVC)**, di mana setiap
 - **Penggunaan AJAX dan Yajra DataTables**
   - Memungkinkan pemrosesan data secara **server-side**.
   - Meningkatkan efisiensi dalam pengambilan dan penyajian data.
+- **Penggunaan Template Admin SoftUI**
+  - Membantu dalam pengembangan tampilan yang lebih profesional dan user-friendly.
+  - Mengoptimalkan pengalaman pengguna dengan desain yang modern dan responsif.
 
 ## Instalasi
 1. Unzip arsip yang telah diunduh.
@@ -62,4 +66,5 @@ Pada Aplikasi ini saya menggunakan pendekatan **modular (HMVC)**, di mana setiap
 - jQuery
 - Yajra DataTables
 - AJAX
+- SoftUI Admin Template
 

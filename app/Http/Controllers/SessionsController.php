@@ -33,9 +33,9 @@ class SessionsController extends Controller
     
     public function destroy()
     {
-
+        session()->forget('menuRoles');
         Auth::logout();
-
-        return redirect('/login')->with(['success'=>'You\'ve been logged out.']);
+        // session()->flush();
+        return redirect('/login')->with(['success' => 'You\'ve been logged out.']);
     }
 }

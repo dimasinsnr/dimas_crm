@@ -23,6 +23,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // Memuat views dari setiap modul
+        $modulesPath = base_path('modules');
+        $modules = \File::directories($modulesPath);
+
+        foreach ($modules as $module) {
+            $moduleName = basename($module);
+            $viewsPath = $module . '/Views';
+
+            if (is_dir($viewsPath)) {
+                $this->loadViewsFrom($viewsPath, $moduleName);
+            }
+        }
     }
 }

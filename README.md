@@ -59,6 +59,18 @@ Aplikasi ini menggunakan pendekatan **modular (HMVC)**, di mana setiap fitur dik
    ```
 8. Akses aplikasi melalui URL yang diberikan.
 
+## Akun Demo
+**Superadmin**
+- Email: superadmin@mail.com
+- Password: secret
+
+**Sales**
+- Email: sales1@mail.com | Password: password123
+- Email: sales2@mail.com | Password: password123
+
+**Manager**
+- Email: manager@mail.com | Password: password123
+
 ## Dependencies
 - PHP 8.2
 - Laravel 11
@@ -67,4 +79,3 @@ Aplikasi ini menggunakan pendekatan **modular (HMVC)**, di mana setiap fitur dik
 - Yajra DataTables
 - AJAX
 - SoftUI Admin Template
-

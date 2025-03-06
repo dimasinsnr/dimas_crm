@@ -33,8 +33,7 @@ class CustomerController extends Controller
 
     public function initTable()
     {
-        // Ambil data menuRoles dari session dan decode
-        $menuRolesEncoded = session('menuRoles'); // Misalnya data yang ada di session
+        $menuRolesEncoded = session('menuRoles');
         $menuRolesDecoded = base64_decode($menuRolesEncoded);
         $menuRoles = unserialize($menuRolesDecoded); // Mendapatkan array/objek menuRoles
 
@@ -49,7 +48,6 @@ class CustomerController extends Controller
             }
         }
 
-        // Bangun query dasar
         $query = DB::table('v_customer')
             ->whereNull('customer_deleted_at')
             ->whereNotIn('customer_status', [1]) // Exclude customer_status 1
@@ -60,7 +58,6 @@ class CustomerController extends Controller
             $query->whereIn('customer_status', [2]);
         }
 
-        // Jalankan query dan return data
         return dataTables::of($query)
             ->addColumn('action', 'customer::ul-action')
             ->rawColumns(['action'])
@@ -156,7 +153,7 @@ class CustomerController extends Controller
                 if ($customer) {
                     $customer->customer_produk_id = $request->customer_produk_id;
                     $customer->customer_nama = $request->customer_nama;
-                    $customer->customer_status = $request->customer_status;
+                    $customer->customer_status = 0;
                     $customer->customer_nik = $request->customer_nik;
                     $customer->customer_phone = $request->customer_phone;
                     $customer->customer_email = $request->customer_email;

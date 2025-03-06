@@ -40,27 +40,26 @@
                 {
                     data: 'customer_status',
                     render: function(data, type, row) {
-                        var badgeColor = ''; // Menentukan warna badge
-                        var statusText = ''; // Menentukan teks status
+                        var badgeColor = '';
+                        var statusText = '';
 
                         if (data === 0) {
-                            badgeColor = 'bg-secondary'; // Warna abu-abu untuk Draf
+                            badgeColor = 'bg-secondary';
                             statusText = 'Draf';
                         } else if (data === 1) {
-                            badgeColor = 'bg-success'; // Warna hijau untuk Disetujui
+                            badgeColor = 'bg-success';
                             statusText = 'Disetujui';
                         } else if (data === 2) {
-                            badgeColor = 'bg-warning'; // Warna kuning untuk Proses Review
+                            badgeColor = 'bg-warning';
                             statusText = 'Proses Review';
                         } else if (data === 3) {
-                            badgeColor = 'bg-danger'; // Warna merah untuk Ditolak
+                            badgeColor = 'bg-danger';
                             statusText = 'Ditolak';
                         } else {
-                            badgeColor = 'bg-secondary'; // Default warna abu-abu jika status tidak diketahui
+                            badgeColor = 'bg-secondary';
                             statusText = 'Tidak Diketahui';
                         }
 
-                        // Mengembalikan badge dengan warna dan teks sesuai dengan status
                         return '<span class="badge ' + badgeColor + '">' + statusText + '</span>';
                     }
                 },
@@ -282,10 +281,17 @@
 
                     historyData.forEach((history, index) => {
                         const formattedDate = moment(history.history_approval_created_at).format('DD-MM-YYYY');
-
+                        
+                        // const row = `
+                        //     <tr>
+                        //         <td>${index + 1}</td>
+                        //         <td>${history.customer_nama}</td>
+                        //         <td>${history.name}</td>
+                        //         <td>${formattedDate}</td>
+                        //     </tr>
+                        // `;
                         const row = `
                             <tr>
-                                <td>${index + 1}</td>
                                 <td>${history.customer_nama}</td>
                                 <td>${history.name}</td>
                                 <td>${formattedDate}</td>
@@ -348,7 +354,7 @@
 
     onReject = (customer_id) => {
         HELPER.confirm({
-            message: 'Anda yakin ingin Menyetujui data ?',
+            message: 'Anda yakin ingin Menolak data ?',
             callback: (result) => {
                 if (result) {
                     HELPER.block();

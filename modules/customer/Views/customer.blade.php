@@ -132,8 +132,7 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Tanggal</th>
-                                <th>Status</th>
+                                <th>Nama</th>
                                 <th>Ditindaklanjuti oleh</th>
                                 <th>Tanggal Approval</th>
                             </tr>

@@ -42,7 +42,7 @@
             <li class="nav-item">
                 <a class="nav-link {{ (Request::is($menu->menu_kode) ? 'active' : '') }}" href="{{ url($menu->menu_kode) }}">
                     <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is($menu->menu_kode) ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+                        <i style="font-size: 1rem;" class="bi bi-list ps-2 pe-2 text-center text-dark {{ (Request::is($menu->menu_kode) ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
                     </div>
                     <span class="nav-link-text ms-1">{{ $menu->menu_title }}</span>
                 </a>

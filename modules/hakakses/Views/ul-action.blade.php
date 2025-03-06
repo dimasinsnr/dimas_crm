@@ -4,15 +4,15 @@
     </button>
     <div class="custom-dropdown-menu" aria-labelledby="customDropdown" onclick="closeCustomDropdowns(event)">
         <a class="dropdown-item" href="javascript:void(0)" onclick="onAkses('{{ strval($hak_akses_id) }}', 'akses')">
-            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+            <i class="bi bi-universal-access text-secondary"></i>
             {{ __('Akses') }}
         </a>
         <a class="dropdown-item" href="javascript:void(0)" onclick="onEdit('{{ strval($hak_akses_id) }}', '{{ strval($hak_akses_nama) }}', '{{ strval($hak_akses_kode) }}', 'formHakakses')">
-            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+            <i class="bi bi-pencil-square text-secondary"></i> 
             {{ __('Edit') }}
         </a>
         <a class="dropdown-item" href="javascript:void(0)" onclick="onDelete('{{ strval($hak_akses_id) }}')">
-            <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+            <i class="bi bi-trash text-secondary"></i>
             {{ __('Delete') }}
         </a>
     </div>

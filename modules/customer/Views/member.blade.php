@@ -33,6 +33,9 @@
                                     <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
                                         Creation Date
                                     </th>
+                                    {{-- <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
+                                        Action
+                                    </th> --}}
                                 </tr>
                             </thead>
                             <tbody>

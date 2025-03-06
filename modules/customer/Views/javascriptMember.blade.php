@@ -63,6 +63,7 @@
                         return moment(data).format('DD-MM-YYYY');
                     }
                 },
+                // { data: 'action', name: 'action', orderable: false},
             ],
             order: [[1, 'asc']]
         });

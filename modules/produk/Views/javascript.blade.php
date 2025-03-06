@@ -15,7 +15,6 @@
 		await HELPER.unblock(100);
 	}
 
-
     initTable = () => {
         $('#tableProduk').DataTable({
             processing: true,

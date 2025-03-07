@@ -43,25 +43,24 @@ Aplikasi ini menggunakan pendekatan **modular (HMVC)**, di mana setiap fitur dik
 ## Instalasi
 1. Unzip arsip yang telah diunduh.
 2. Salin dan tempel folder proyek ke dalam direktori proyek Anda, lalu ubah namanya sesuai kebutuhan.
-3. Import database dari file `dimas_crm.sql` ke dalam server **MySQL** Anda.
-4. Jalankan perintah berikut di terminal:
+3. Jalankan perintah berikut di terminal:
    ```bash
    composer install
    ```
-5. Salin `.env.example` menjadi `.env` lalu perbarui konfigurasi database.
-6. Generate application key:
+4. Salin `.env.example` menjadi `.env` lalu perbarui konfigurasi database.
+5. Generate application key:
    ```bash
    php artisan key:generate
    ```
-7. Jalankan migrasi dan seeder untuk mengisi data awal:
+6. Jalankan migrasi dan seeder untuk mengisi data awal:
    ```bash
    php artisan migrate --seed
    ```
-8. Jalankan server pengembangan:
+7. Jalankan server pengembangan:
    ```bash
    php artisan serve
    ```
-9. Akses aplikasi melalui URL yang diberikan.
+8. Akses aplikasi melalui URL yang diberikan.
 
 ## Akun Demo
 **Superadmin**

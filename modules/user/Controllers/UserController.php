@@ -57,6 +57,10 @@ class UserController extends Controller
     public function storeData(Request $request)
     {
         try {
+            $request->validate([
+                'email' => 'required|email|unique:users,email,' . ($request->id ? $request->id : 'NULL') // 'users' adalah nama tabel, 'email' adalah nama kolom, dan $request->id digunakan untuk pengecekan update
+            ]);
+            
             if (!empty($request->id)) {
                 $user = UserModel::find($request->id);
                 

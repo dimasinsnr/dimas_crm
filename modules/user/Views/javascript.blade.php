@@ -90,6 +90,25 @@
                                 });
                             }
                         },
+                        error: (xhr, status, error) => {
+                            if (xhr.status == 500) {
+                                const errorMessage = xhr.responseJSON && xhr.responseJSON.error
+                                    ? xhr.responseJSON.error
+                                    : 'Internal server error. Please try again later.';
+
+                                HELPER.showMessage({
+                                    success: false,
+                                    message: errorMessage,
+                                    title: 'False'
+                                });
+                            } else {
+                                HELPER.showMessage({
+                                    success: false,
+                                    message: 'An unknown error occurred. Please try again.',
+                                    title: 'Error'
+                                });
+                            }
+                        },
                         complete: (response) => {
                             HELPER.unblock(500);
                         }
@@ -266,6 +285,7 @@
     }
 
     openModal = () => {
+        $('#password_id').show();
         $('#password').attr('required', true);
         HELPER.createCombo({
 			el: ['hak_akses_id'],

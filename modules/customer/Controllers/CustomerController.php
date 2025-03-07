@@ -31,7 +31,7 @@ class CustomerController extends Controller
         ]);
     }
 
-    public function initTable()
+    public function initTable(Request $request)
     {
         $menuRolesEncoded = session('menuRoles');
         $menuRolesDecoded = base64_decode($menuRolesEncoded);
@@ -58,6 +58,14 @@ class CustomerController extends Controller
             $query->whereIn('customer_status', [2]);
         }
 
+        if ($request->has('search') && $request->search['value']) {
+            $search = $request->search['value'];
+            $query->where(function($q) use ($search) {
+                $q->where('customer_nama', 'like', "%$search%")
+                  ->orWhere('produk_nama', 'like', "%$search%"); // Searching produk_nama as well
+            });
+        }
+
         return dataTables::of($query)
             ->addColumn('action', 'customer::ul-action')
             ->rawColumns(['action'])
@@ -67,12 +75,20 @@ class CustomerController extends Controller
             ->make(true);
     }
 
-    public function initTableMember()
+    public function initTableMember(Request $request)
     {
         $query = DB::table('v_customer')
         ->whereNull('customer_deleted_at')
         ->where('customer_status', 1)
         ->orderByDesc('customer_created_at');
+
+        if ($request->has('search') && $request->search['value']) {
+            $search = $request->search['value'];
+            $query->where(function($q) use ($search) {
+                $q->where('customer_nama', 'like', "%$search%")
+                  ->orWhere('produk_nama', 'like', "%$search%");
+            });
+        }
 
         return dataTables::of($query)
             ->addColumn('action', 'customer::ul-action')

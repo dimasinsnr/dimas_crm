@@ -13,31 +13,38 @@
 
 <td class="text-center">
     @if ($customer_status !== 0)
-        @if ($menuRoles)
-            @php
-                $hasApproveMenu = false;
-            @endphp
+        @if ($customer_status == 3)
+            <!-- Show History button for all roles when customer_status is 3 -->
+            <a href="javascript:void(0)" class="ms-5" data-bs-toggle="tooltip" data-bs-original-title="History" onclick="onHistory('{{ strval($customer_id) }}')">
+                <i class="bi bi-clock-history"></i>
+            </a>
+        @else
+            @if ($menuRoles)
+                @php
+                    $hasApproveMenu = false;
+                @endphp
 
-            @foreach($menuRoles as $menu)
-                @if($menu->menu_kode == 'customer-Approve')
-                    <!-- Tombol Approve dan Reject hanya jika menu_kode == 'customer-Approve' -->
-                    <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-original-title="Approve" onclick="onApprove('{{ strval($customer_id) }}')">
-                        <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                @foreach($menuRoles as $menu)
+                    @if($menu->menu_kode == 'customer-Approve')
+                        <!-- Show Approve and Reject buttons only if menu_kode == 'customer-Approve' -->
+                        <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-original-title="Approve" onclick="onApprove('{{ strval($customer_id) }}')">
+                            <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                        </a>
+                        <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-original-title="Reject" onclick="onReject('{{ strval($customer_id) }}')">
+                            <i class="bi bi-x-circle-fill text-danger text-danger fs-4"></i>
+                        </a>
+                        @php
+                            $hasApproveMenu = true;
+                        @endphp
+                        @break
+                    @endif
+                @endforeach
+
+                @if (!$hasApproveMenu)
+                    <a href="javascript:void(0)" class="ms-5" data-bs-toggle="tooltip" data-bs-original-title="History" onclick="onHistory('{{ strval($customer_id) }}')">
+                        <i class="bi bi-clock-history"></i>
                     </a>
-                    <a href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-original-title="Reject" onclick="onReject('{{ strval($customer_id) }}')">
-                        <i class="bi bi-x-circle-fill text-danger text-danger fs-4"></i>
-                    </a>
-                    @php
-                        $hasApproveMenu = true;
-                    @endphp
-                    @break
                 @endif
-            @endforeach
-
-            @if (!$hasApproveMenu)
-                <a href="javascript:void(0)" class="ms-5" data-bs-toggle="tooltip" data-bs-original-title="History" onclick="onHistory('{{ strval($customer_id) }}')">
-                    <i class="bi bi-clock-history"></i>
-                </a>
             @endif
         @endif
     @else

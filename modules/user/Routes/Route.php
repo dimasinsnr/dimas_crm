@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Hakakses\Controllers\HakaksesController;
 use Modules\User\Controllers\UserController;
 
 Route::prefix('user')->middleware('auth')->group(function () {

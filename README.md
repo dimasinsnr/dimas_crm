@@ -53,11 +53,15 @@ Aplikasi ini menggunakan pendekatan **modular (HMVC)**, di mana setiap fitur dik
    ```bash
    php artisan key:generate
    ```
-7. Jalankan server pengembangan:
+7. Jalankan migrasi dan seeder untuk mengisi data awal:
+   ```bash
+   php artisan migrate --seed
+   ```
+8. Jalankan server pengembangan:
    ```bash
    php artisan serve
    ```
-8. Akses aplikasi melalui URL yang diberikan.
+9. Akses aplikasi melalui URL yang diberikan.
 
 ## Akun Demo
 **Superadmin**
